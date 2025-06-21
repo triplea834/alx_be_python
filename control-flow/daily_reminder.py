@@ -1,26 +1,45 @@
-# daily_reminder.py
+# shopping_list_manager.py
 
-# Step 1: Get your user inputs
-task = input("Enter your task: ")
-priority = input("Priority (high/medium/low): ").lower()
-time_bound = input("Is it time-bound?(yes/no): ").lower()
+def display_menu():
+    print("\nShopping List Manager")
+    print("1. Add Item")
+    print("2. Remove Item")
+    print("3. View List")
+    print("4. Exit")
 
-# Step 2 & 3: Use match-case and if to provide customized reminder
-match priority:
-    case "high":
-        if time_bound == "yes":
-            print(f"Reminder: '{task}' is a high priority task that requires immediate attention today!")
+def main():
+    shopping_list = []
+    while True:
+        display_menu()
+        choice = input("Enter your choice: ").strip()
+
+        if choice == '1':
+            item = input("Enter the item to add: ").strip()
+            if item:
+                shopping_list.append(item)
+                print(f"'{item}' has been added to the shopping list.")
+            else:
+                print("Item cannot be empty.")
+       
+        elif choice == '2':
+            item = input("Enter the item to remove: ").strip()
+            if item in shopping_list:
+                shopping_list.remove(item)
+                print(f"'{item}' has been removed from the shopping list.")
+            else:
+                print(f"'{item}' not found in the shopping list.")
+       
+        elif choice == '3':
+            if shopping_list:
+                print("\nYour Shopping List:")
+                for idx, item in enumerate(shopping_list, start=1):
+                    print(f"{idx}. {item}")
+            else:
+                print("Your shopping list is currently empty.")
+       
+        elif choice == '4':
+            print("Goodbye!")
+            break
+       
         else:
-            print(f"Reminder: '{task}' is a high priority task. Make sure to complete it soon.")
-    case "medium":
-        if time_bound == "yes":
-            print(f"Reminder: '{task}' is a medium priority task that requires immediate attention today!")
-        else:
-            print(f"Reminder: '{task}' is a medium priority task. Try to get to it soon.")
-    case "low":
-        if time_bound == "yes":
-            print(f"Reminder: '{task}' is a low priority task that requires immediate attention today!")
-        else:
-            print(f"Note: '{task}' is a low priority task. Consider completing it when you have free time.")
-    case _:
-        print(f"Sorry, '{priority}' is not recognized priority level. Please enter high, medium, or low.")
+            print("Invalid choice. Please try again.")
