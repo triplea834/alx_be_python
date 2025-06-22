@@ -1,17 +1,10 @@
 # main.py
 
-from polymorphism_demo import Shape, Rectangle, Circle
+from class_static_methods_demo import Calculator
 
 def main():
-    shapes = [
-        Rectangle(10, 5),
-        Circle(7)
-    ]
-
-
-    for shape in shapes:
-        print(f"The area of the {shape.__class__.__name__} is: {shape.area()}")
-
-if __name__ == "__main__":
-    main()
-
+    print("Calculation Type:", Calculator.get_calculation_type())
+    print("Add:", Calculator.add(5, 3))
+    print("Subtract:", Calculator.subtract(5, 3))
+    print("Multiply:", Calculator.multiply(5, 3))
+    print("Divide:", Calculator.divide(5, 0))
