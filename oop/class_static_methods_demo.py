@@ -13,7 +13,7 @@ class Calculator:
         return a - b
 
     @staticmethod
-    def multiply(a, b):
+    def multiply(cls, a, b):
         return a * b
 
     @staticmethod
