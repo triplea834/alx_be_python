@@ -1,10 +1,13 @@
-# main.py
-
 from class_static_methods_demo import Calculator
 
 def main():
-    print("Calculation Type:", Calculator.get_calculation_type())
-    print("Add:", Calculator.add(5, 3))
-    print("Subtract:", Calculator.subtract(5, 3))
-    print("Multiply:", Calculator.multiply(5, 3))
-    print("Divide:", Calculator.divide(5, 0))
+    sum_result = Calculator.add(10, 5)
+    print(f"The sum is: {sum_result}")
+
+    print("Calculation type:", Calculator.get_calculation_type())
+
+    product_result = Calculator.multiply(10, 5)
+    print(f"The product is: {product_result}")
+
+if __name__ == "__main__":
+    main()
