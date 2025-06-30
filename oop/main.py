@@ -1,13 +1,18 @@
-from class_static_methods_demo import Calculator
+
+# main.py
+
+from book_class import Book
 
 def main():
-    sum_result = Calculator.add(10, 5)
-    print(f"The sum is: {sum_result}")
+    my_book = Book("1984", "George Orwell", 1949)
 
-    print("Calculation type:", Calculator.get_calculation_type())
+    print(my_book)         # Should call __str__
+    print(repr(my_book))   # Should call __repr__
 
-    product_result = Calculator.multiply(10, 5)
-    print(f"The product is: {product_result}")
+    del my_book            # Should call __del__
 
 if __name__ == "__main__":
     main()
+
+
+
